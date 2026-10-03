@@ -1,20 +1,22 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { initFlowbite } from 'flowbite';
-
+import { OnInit } from '@angular/core'
 import {Zodiaco} from './formularios/zodiaco/zodiaco'
-
+import {Navbar} from './navbar/navbar'
+import {Usuario}  from './formularios/usuario/usuario'
 
 @Component({
-  imports: [RouterOutlet, Zodiaco],
+  imports: [RouterOutlet, Navbar, Usuario],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
 })
 
-export class App {
-  protected readonly title = signal('segundoparcialAngular');
-   ngOnInit(): void {
+export class App implements OnInit{
+  title = 'web-app';
+   
+  ngOnInit(): void {
     initFlowbite();
   }
 }
