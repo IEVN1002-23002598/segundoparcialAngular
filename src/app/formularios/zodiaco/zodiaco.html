@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <br>
+
+    <h3>DATOS PERSONALES</h3>
+
+<form>
+
+    <label>Nombre:</label>
+    <input type="text" placeholder="Escribe tu nombre" name="nombre" [(ngModel)]="nombre">
+
+    <br><br>
+
+    <label>A.paterno:</label>
+    <input type="text" placeholder="Escribe apellido paterno" name="paterno" [(ngModel)]="paterno">    
+
+    <br><br>
+    <label>A.materno:</label>
+    <input type="text" placeholder="Escribe apellido materno" name="materno" [(ngModel)]="materno">    
+
+    <br><br>
+    <label>Fecha de nacimiento:</label>
+    <br><br>
+
+    <label>Dia:</label>
+    <input type="text"  name="dia" [(ngModel)]="dia" placeholder="DD">
+    
+    <label>Mes:</label>
+    <input type="text"  name="mes" [(ngModel)]="mes" placeholder="MM">
+
+    <label>Año:</label>
+    <input type="text"  name="anio" [(ngModel)]="anio" placeholder="AAA">
+    <br><br>
+
+    <label>Sexo:</label>
+    <br>
+    
+    <input [(ngModel)]="sexo" type="radio" name="sexo" value="Masculino">Masculino
+    <br>
+   
+    <input [(ngModel)]="sexo" type="radio" name="sexo" value="Femenino">Femenino
+    <br><br>
+    <button type="button" (click)="imprimir()">Imprimir</button>
+    <br>
+</form>
+
+  <br>
+  <h3>{{resultado}}</h3>
+  <img [src]="imagen" width="300">
+    
+
+</body>
+</html>
