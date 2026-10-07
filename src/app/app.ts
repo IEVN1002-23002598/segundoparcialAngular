@@ -7,10 +7,10 @@ import {Navbar} from './navbar/navbar'
 import {Usuario}  from './formularios/usuario/usuario'
 
 @Component({
-  imports: [RouterOutlet, Navbar, Usuario],
   selector: 'app-root',
-  styleUrl: './app.css',
+  imports: [RouterOutlet, Navbar],
   templateUrl: './app.html',
+  styleUrl: './app.css',
 })
 
 export class App implements OnInit{
@@ -20,21 +20,4 @@ export class App implements OnInit{
     initFlowbite();
   }
 }
-
-// import { Component } from '@angular/core';
-// import { OnInit } from '@angular/core';
-// import { initFlowbite } from 'flowbite';
-
-// @Component({
-//   selector: 'app-root',
-//   templateUrl: './app.component.html',
-//   styleUrls: ['./app.component.css']
-// })
-// export class AppComponent implements OnInit {
-//   title = 'web-app';
-
-//   ngOnInit(): void {
-//     initFlowbite();
-//   }
-// }
 
