@@ -1,0 +1,151 @@
+
+<div class="w-full max-w-4xl mx-auto p-6 bg-white rounded-lg shadow mt-24">
+
+ 
+
+  <h1 class="text-3xl font-bold text-gray-900 mb-6">
+
+    Cinépolis
+
+  </h1>
+  <h2>ENTRADAS</h2>
+  <br>
+  <form [formGroup]="formulario">
+
+     <!-- Nombre -->
+      <label
+
+        for="nombre"
+        class="block mb-2 text-sm font-medium text-gray-900">
+        Nombre
+      </label>
+
+      <input
+
+        type="text"
+        id="nombre"
+        name="nombre"
+        formControlName="nombre"
+        required
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+
+               focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+
+      <br>
+    <!-- Cantidad Compradores -->
+
+    <div class="mb-5">
+      <label
+
+        for="compradores"
+        class="block mb-2 text-sm font-medium text-gray-900">
+        Cantidad Compradores
+      </label>
+
+      <input
+
+        type="text"
+        id="compradores"
+        name="compradores"
+        formControlName="compradores"
+        required
+
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+
+               focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+    <br>
+
+       <!--Radio botones -->
+
+      <label
+      for="tarjeta"
+        class="block mb-2 text-sm font-medium text-gray-900">
+        Tarjeta cineco
+      </label>
+
+      <input
+        type="radio"
+        value="si"
+        formControlName="tarjeta"
+        required
+        >Si
+       
+        <input
+        type="radio"
+        value="no"
+        formControlName="tarjeta"
+        required
+        >No
+    <br>
+    <br>
+   
+       <!-- Cantidad de Boletos -->
+      <label
+        for="boletos"
+        class="block mb-2 text-sm font-medium text-gray-900">
+        Cantidad de Boletos
+      </label>
+
+      <input
+
+        type="text"
+        id="boletos"
+        name="boletos"
+        formControlName="boletos"
+        required
+
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+               focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+    <br>
+
+    <!-- Botón -->
+      <div class="flex justify-end mt-5">
+        <button
+          type="submit"
+          (click)="procesar()"
+          class="text-white bg-blue-700 hover:bg-blue-800
+
+                 focus:ring-4 focus:outline-none focus:ring-blue-300
+
+                 font-medium rounded-lg text-sm px-5 py-2.5
+
+                 disabled:opacity-50 disabled:cursor-not-allowed">
+          Procesar
+        </button>
+        
+       
+      </div>
+
+      <br>
+    <!--salidas-->
+      <h2>SALIDAS</h2>
+      <br>
+      <label
+        class="block mb-2 text-sm font-medium text-gray-900">
+        Valor a pagar:
+      </label>
+
+      <input
+        type="text"
+        readonly
+        formControlName="valorPagar"
+        required
+
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+               focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+    <br>
+
+      
+    </div>
+  </form>
+
+  <!-- <h2>Nombre: {{nuevoCliente.nombre}}</h2> -->
+  <h2> {{ mensaje }}</h2>
+
+</div>
+
+ 
+
+ 
+
+

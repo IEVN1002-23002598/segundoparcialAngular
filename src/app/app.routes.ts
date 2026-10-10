@@ -35,6 +35,13 @@ export const routes: Routes = [
                         (c)=>c.ListaAlumnos
                     )
             },
+            {
+                path:'cinepolis',
+                loadComponent:()=>
+                    import('./escuela/cinepolis/cinepolis').then(
+                        (c)=>c.Cinepolis
+                    )
+            },
 
         ]
     
