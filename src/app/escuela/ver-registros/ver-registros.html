@@ -1,0 +1,172 @@
+<div class="w-full max-w-4xl mx-auto p-6 bg-white rounded-lg shadow mt-24">
+
+  <h1 class="text-3xl font-bold text-gray-900 mb-6">
+    Lista Clientes
+  </h1>
+
+  <form [formGroup]="formulario">
+
+    <div class="mb-5">
+     
+      <label
+        for="nombre"
+        class="block mb-2 text-sm font-medium text-gray-900">
+        Nombre
+      </label>
+      <input
+        type="text"
+        id="nombre"
+        name="nombre"
+        formControlName="nombre"
+        required
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+        placeholder="Nombre">
+      <br>
+
+     
+      <label
+        for="compradores"
+        class="block mb-2 text-sm font-medium text-gray-900">
+        Cantidad Compradores
+      </label>
+      <input
+        type="text"
+        id="compradores"
+        name="compradores"
+        formControlName="compradores"
+        required
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+        placeholder="Cantidad Compradores">
+      <br>
+
+      
+      <label class="block mb-2 text-sm font-medium text-gray-900">
+        Tarjeta cineco
+      </label>
+      <div class="flex items-center gap-4">
+        <label class="inline-flex items-center gap-1 text-sm font-medium text-gray-900">
+          <input type="radio" value="si" formControlName="tarjeta"> Sí
+        </label>
+        <label class="inline-flex items-center gap-1 text-sm font-medium text-gray-900">
+          <input type="radio" value="no" formControlName="tarjeta"> No
+        </label>
+      </div>
+      <br>
+
+      
+      <label
+        for="boletos"
+        class="block mb-2 text-sm font-medium text-gray-900">
+        Cantidad de Boletos
+      </label>
+      <input
+        type="text"
+        id="boletos"
+        name="boletos"
+        formControlName="boletos"
+        required
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+        placeholder="Cantidad de Boletos">
+
+
+
+      <div class="flex justify-end gap-2 mt-5">
+
+        <button
+          type="button"
+          (click)="muestraClientes()"
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 disabled:opacity-50 disabled:cursor-not-allowed">
+          Registrar
+        </button>
+
+        <button
+        type="button"
+        (click)="muestraClientes()"
+        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 disabled:opacity-50 disabled:cursor-not-allowed">
+        Guardar Cambios
+      </button>
+
+      </div>
+    </div>
+  </form>
+
+</div>
+
+<!-- Tabla -->
+<div class="max-w-6xl mx-auto mt-8">
+
+  <h2 class="mb-4 text-2xl font-bold text-gray-900">
+    Lista de clientes
+  </h2>
+
+  <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+
+    <table class="w-full text-sm text-left text-gray-500">
+
+  
+      <thead class="text-xs text-gray-700 uppercase bg-gray-100">
+        <tr>
+          <th scope="col" class="px-6 py-3">Nombre</th>
+          <th scope="col" class="px-6 py-3">Cantidad compradores</th>
+          <th scope="col" class="px-6 py-3">Tarjeta cineco</th>
+          <th scope="col" class="px-6 py-3">Cantidad de boletos</th>
+          <th scope="col" class="px-6 py-3">Valor a pagar</th>
+          <th scope="col" class="px-6 py-3">Acciones</th>
+        </tr>
+      </thead>
+
+      <!-- Datos -->
+      <tbody>
+        <tr *ngFor="let cliente1 of clientes; let i = index" class="bg-white border-b border-gray-200 hover:bg-gray-50">
+          <td class="px-6 py-4 ">
+            {{ cliente1.nombre }}
+          </td>
+
+          <td class="px-6 py-4">
+            {{ cliente1.compradores }}
+          </td>
+
+          <td class="px-6 py-4">
+            {{ cliente1.tarjeta }}
+          </td>
+
+          <td class="px-6 py-4">
+            {{ cliente1.boletos }}
+          </td>
+
+          <td class="px-6 py-4 ">
+            {{ cliente1.valorPagar }}
+          </td>
+
+          <td class="px-6 py-4">
+            <div class="flex gap-2">
+              <!-- Botonsito de Editar -->
+              <button
+                type="button"
+                class="px-4 py-2 text-sm font-medium text-white bg-green-600 rounded-lg hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-300"
+                (click)="editarClientes(i)">
+                Editar
+              </button>
+
+              <!-- Botonsito de Eliminar -->
+              <button
+                type="button"
+                class="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300"
+                (click)="eliminarCliente(i)">
+                Eliminar
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+
+  </div>
+
+  <div *ngIf="clientes.length === 0" class="p-4 mt-4 text-sm text-gray-800 rounded-lg bg-gray-100" role="alert">
+    <span class="font-medium">Información:</span>
+    No hay clientes registrados.
+  </div>
+
+</div>

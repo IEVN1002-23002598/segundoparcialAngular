@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { IAlumnos } from '../alumnos';  
+import { IAlumno } from '../alumnos';  
+import { CommonModule } from '@angular/common';
+
 
 @Component({
-  imports: [FormsModule,ReactiveFormsModule],
+  imports: [FormsModule,ReactiveFormsModule, CommonModule],
   selector: 'app-lista-alumnos',
   styleUrl: './lista-alumnos.css',
   templateUrl: './lista-alumnos.html',
@@ -11,9 +13,9 @@ import { IAlumnos } from '../alumnos';
 export class ListaAlumnos implements OnInit{
   formulario!:FormGroup
   indiceEdicion: number = -1
-  alumnos:IAlumnos[]=[]
+  alumnos:IAlumno[]=[]
 
-  nuevoAlumno:IAlumnos={
+  nuevoAlumno:IAlumno={
     matricula:'',
     nombre:'',
     correo:'',
@@ -102,6 +104,13 @@ export class ListaAlumnos implements OnInit{
       correo: '',
       materia: '',
     }
+    this.formulario.patchValue({
+      matricula: this.nuevoAlumno.matricula,
+      nombre: this.nuevoAlumno.nombre,
+      correo: this.nuevoAlumno.correo,
+      materia: this.nuevoAlumno.materia,
+    })
+
     this.indiceEdicion=-1
   }
   
